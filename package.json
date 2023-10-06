@@ -6,6 +6,8 @@
   "engines": {
     "vscode": "^1.83.0"
   },
+  "publisher": "EudaStat",
+  "repository": "https://github.com/EudaStat/fletcher",
   "categories": [
     "Other"
   ],
