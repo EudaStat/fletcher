@@ -2,7 +2,7 @@
   "name": "fletcher",
   "displayName": "fletcher",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.83.0"
   },
@@ -17,14 +17,24 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "languages": [{
-      "id": "R",
-      "extensions": [".R", ".r", ".Rmd", ".rmd", ".qmd"]
-    }],
-    "definitionProviders": [{
-      "language": "R",
-      "scheme": "file"
-    }],
+    "languages": [
+      {
+        "id": "R",
+        "extensions": [
+          ".R",
+          ".r",
+          ".Rmd",
+          ".rmd",
+          ".qmd"
+        ]
+      }
+    ],
+    "definitionProviders": [
+      {
+        "language": "R",
+        "scheme": "file"
+      }
+    ],
     "commands": [
       {
         "command": "fletcher.findTargetDefinition",
@@ -32,22 +42,24 @@
       }
     ],
     "keybindings": [
-      { 
-        "key": "alt+m", 
-        "command": "r.runCommandWithSelectionOrWord", 
-        "args": "targets::tar_make($$)", 
-        "when": "editorTextFocus && ( editorLangId == 'r' || editorLangId == 'markdown' )" 
-      }, { 
-        "key": "alt+l", 
-        "command": "r.runCommandWithSelectionOrWord", 
-        "args": "targets::tar_load($$)", 
-        "when": "editorTextFocus && ( editorLangId == 'r' || editorLangId == 'markdown' )" 
-      }, { 
-        "key": "alt+i", 
-        "command": "r.runCommandWithSelectionOrWord", 
-        "args": "targets::tar_invalidate($$)", 
-        "when": "editorTextFocus && ( editorLangId == 'r' || editorLangId == 'markdown' )" 
-      } 
+      {
+        "key": "alt+m",
+        "command": "r.runCommandWithSelectionOrWord",
+        "args": "targets::tar_make($$)",
+        "when": "editorTextFocus && ( editorLangId == 'r' || editorLangId == 'markdown' )"
+      },
+      {
+        "key": "alt+l",
+        "command": "r.runCommandWithSelectionOrWord",
+        "args": "targets::tar_load($$)",
+        "when": "editorTextFocus && ( editorLangId == 'r' || editorLangId == 'markdown' )"
+      },
+      {
+        "key": "alt+i",
+        "command": "r.runCommandWithSelectionOrWord",
+        "args": "targets::tar_invalidate($$)",
+        "when": "editorTextFocus && ( editorLangId == 'r' || editorLangId == 'markdown' )"
+      }
     ]
   },
   "scripts": {
