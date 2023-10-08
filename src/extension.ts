@@ -2,6 +2,16 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
+async function findFilesForPatterns(patterns: string[]): Promise<vscode.Uri[]> {
+  let allFiles: vscode.Uri[] = [];
+
+  for (const pattern of patterns) {
+      const files = await vscode.workspace.findFiles(pattern);
+      allFiles.push(...files);
+  }
+
+  return allFiles;
+}
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -28,7 +38,11 @@ export function activate(context: vscode.ExtensionContext) {
 
     fletchOut.appendLine("Searching for "+highlightedWord);
 
-    const allRFiles = await vscode.workspace.findFiles('**/*.R', '**/*.r');
+
+    let config = vscode.workspace.getConfiguration('fletcher');
+    let searchDirectories: string[] = config.get('targetDefinitionGlobPatterns', []);
+
+    const allRFiles = await findFilesForPatterns(searchDirectories);
     
     for (const file of allRFiles) {
       const fileContent = await vscode.workspace.openTextDocument(file);

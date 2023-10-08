@@ -17,6 +17,19 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+        "title": "Fletcher",
+        "properties": {
+            "fletcher.targetDefinitionGlobPatterns": {
+                "type": "array",
+                "default": ["_targets.R", "**/tar_specs/*.R"],
+                "items": {
+                    "type": "string"
+                },
+                "description": "Glob patterns to search for target definition files"
+            }
+        }
+    },
     "languages": [
       {
         "id": "R",
