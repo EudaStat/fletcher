@@ -2,7 +2,7 @@
   "name": "fletcher",
   "displayName": "fletcher",
   "description": "",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.83.0"
   },
@@ -18,17 +18,20 @@
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-        "title": "Fletcher",
-        "properties": {
-            "fletcher.targetDefinitionGlobPatterns": {
-                "type": "array",
-                "default": ["_targets.R", "**/tar_specs/*.R"],
-                "items": {
-                    "type": "string"
-                },
-                "description": "Glob patterns to search for target definition files"
-            }
+      "title": "Fletcher",
+      "properties": {
+        "fletcher.targetDefinitionGlobPatterns": {
+          "type": "array",
+          "default": [
+            "_targets.R",
+            "**/tar_specs/*.R"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Glob patterns to search for target definition files"
         }
+      }
     },
     "languages": [
       {
