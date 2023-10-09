@@ -1,5 +1,4 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+
 import * as vscode from 'vscode';
 
 async function findFilesForPatterns(patterns: string[]): Promise<vscode.Uri[]> {
@@ -17,7 +16,7 @@ async function findFilesForPatterns(patterns: string[]): Promise<vscode.Uri[]> {
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Creating a separate output window to allow users to understand the 
+  // Creating a separate output window to allow users to understand the 
   // what's going behing the scenes
   let fletchOut = vscode.window.createOutputChannel("fletcher");
 
